@@ -14,10 +14,25 @@ class App extends Component {
        color: `rgb(${this.getRandomColor()}, ${this.getRandomColor()}, ${this.getRandomColor()})`
       }
     }
+    const boxes = [];
+    const numBoxes = 24;
+    for (let i = 0; i < numBoxes; i++) {
+      boxes.push ({
+        id: 1,
+        color: `rgb(${this.getRandomColor()}, ${this.getRandomColor()}, ${this.getRandomColor()})`
+       });
+     }
 
-    // set default state
-
-    // bind methods to this
+     this.state = { boxes }; 
+     
+     handleBoxClick(e) {
+      const newBoxes = this.State.boxes.map((box) => {
+         if (box.id == e.targrt.id){
+          box.color = `rgb(${this.getRandomColor()}, ${this.getRandomColor()}, ${this.getRandomColor()})`
+      }
+      return box;
+         });
+   };
   }
 
   render() {
@@ -31,7 +46,7 @@ class App extends Component {
         }}
       >
         <h1>React: State and Props</h1>
-        <div className="App">{/* render boxes */}</div>
+        <div className="App">{ boxes }</div>
       </main>
     );
   }
